@@ -245,7 +245,180 @@
       display:none;
     }
 
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:18px;
+      margin-bottom:18px;
+      align-items:stretch;
+    }
+
+    .hero-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(59,130,246,.28), transparent 34%),
+        radial-gradient(circle at 88% 12%, rgba(124,58,237,.20), transparent 28%),
+        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
+      box-shadow:0 24px 70px rgba(0,0,0,.28);
+      padding:22px;
+    }
+
+    .hero-eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.07);
+      color:#dbeafe;
+      border-radius:999px;
+      padding:7px 11px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .hero h2{
+      margin:14px 0 8px;
+      font-size:30px;
+      line-height:1.1;
+      letter-spacing:-.6px;
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+      max-width:720px;
+    }
+
+    .hero-kpis{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .kpi-pill{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.055);
+      border-radius:16px;
+      padding:12px;
+      min-height:76px;
+    }
+
+    .kpi-pill span{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.45px;
+      margin-bottom:7px;
+    }
+
+    .kpi-pill b{
+      display:block;
+      color:var(--text);
+      font-size:18px;
+      line-height:1.1;
+    }
+
+    .rules-card{
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.055);
+      box-shadow:0 18px 45px rgba(0,0,0,.20);
+      padding:18px;
+    }
+
+    .rules-card h3{
+      margin:0 0 12px;
+      font-size:15px;
+    }
+
+    .rule-item{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .rule-item:last-child{border-bottom:0}
+    .rule-item b{color:var(--text);font-size:13px;text-align:right}
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      padding:4px 8px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.2px;
+      border:1px solid rgba(255,255,255,.16);
+    }
+    .chip.green{background:rgba(23,184,87,.15);color:#a7f3d0}
+    .chip.yellow{background:rgba(244,182,63,.16);color:#fde68a}
+    .chip.red{background:rgba(239,75,75,.16);color:#fecaca}
+    .chip.gray{background:rgba(255,255,255,.08);color:#d1d5db}
+
+    .quality-card{
+      margin-top:14px;
+      padding:13px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:14px;
+      background:rgba(255,255,255,.035);
+    }
+
+    .quality-card h3{
+      margin:0 0 8px;
+      font-size:14px;
+    }
+
+    .quality-card p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+    }
+
+    .qr-config{
+      margin-top:10px;
+      display:grid;
+      gap:6px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .qr-config input{
+      width:100%;
+      background:#0c0d1a;
+      color:var(--text);
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:9px 10px;
+    }
+
+    .metric b.status-text-green{color:#86efac}
+    .metric b.status-text-yellow{color:#fde68a}
+    .metric b.status-text-red{color:#fecaca}
+    .metric b.status-text-gray{color:#d1d5db}
+
+    @media print{
+      body{background:white;color:#111}
+      header, main{display:none}
+    }
+
     @media(max-width:1100px){
+      .hero{grid-template-columns:1fr}
+      .hero-kpis{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .controls{grid-template-columns:1fr auto;}
       .time{text-align:left}
@@ -272,6 +445,27 @@
 </header>
 
 <main>
+
+  <section class="hero">
+    <div class="hero-card">
+      <span class="hero-eyebrow">CRIUS Validator · Quality Gate</span>
+      <h2>Validación visual y técnica antes de cargar contenido</h2>
+      <p>Controla resolución, duración, cortes entre banners, zonas visibles/no visibles, continuidad de fondo y QR exclusivo a dominio Liverpool. El objetivo es simple: que nada llegue a tienda con sorpresa incluida.</p>
+      <div class="hero-kpis">
+        <div class="kpi-pill"><span>Formato esperado</span><b>914 × 908 px</b></div>
+        <div class="kpi-pill"><span>Duración máxima</span><b>10 segundos</b></div>
+        <div class="kpi-pill"><span>Salida</span><b>Reporte PDF visual</b></div>
+      </div>
+    </div>
+    <div class="rules-card">
+      <h3>Reglas de aprobación</h3>
+      <div class="rule-item"><span>Menor o igual a 10s</span><b><span class="chip green">Aprobable</span></b></div>
+      <div class="rule-item"><span>Mayor a 10s</span><b><span class="chip red">Negado</span></b></div>
+      <div class="rule-item"><span>QR externo</span><b><span class="chip red">Riesgo</span></b></div>
+      <div class="rule-item"><span>Contenido sensible</span><b><span class="chip yellow">Revisión IA/manual</span></b></div>
+    </div>
+  </section>
+
   <div class="grid">
     <section class="panel">
       <div class="panel-head">
@@ -282,7 +476,7 @@
         <div class="upload" id="dropZone">
           <div>
             <b>Cargar video .mp4</b>
-            <div class="small-note">Ideal: 914 × 908 px. El archivo se procesa localmente en tu navegador.</div>
+            <div class="small-note">Ideal: 914 × 908 px y máximo 10 segundos. El archivo se procesa localmente en tu navegador.</div>
           </div>
           <input id="fileInput" type="file" accept="video/mp4,video/*" />
         </div>
@@ -309,7 +503,7 @@
     <aside class="panel">
       <div class="panel-head">
         <h2>Resultado</h2>
-        <button class="secondary" id="exportBtn" disabled>Exportar reporte</button>
+        <button class="secondary" id="exportBtn" disabled>Exportar PDF</button>
       </div>
       <div class="panel-body">
         <div class="status-card">
@@ -322,10 +516,13 @@
 
         <div class="metric"><span>Resolución detectada</span><b id="resolutionMetric">—</b></div>
         <div class="metric"><span>Duración</span><b id="durationMetric">—</b></div>
+        <div class="metric"><span>Regla de duración</span><b id="durationStatusMetric">—</b></div>
         <div class="metric"><span>Frames revisados</span><b id="framesMetric">—</b></div>
         <div class="metric"><span>Alertas amarillas</span><b id="yellowMetric">—</b></div>
         <div class="metric"><span>Alertas rojas</span><b id="redMetric">—</b></div>
         <div class="metric"><span>Alertas consolidadas</span><b id="groupedMetric">—</b></div>
+        <div class="metric"><span>QR detectados</span><b id="qrMetric">—</b></div>
+        <div class="metric"><span>Contenido sensible</span><b id="semanticMetric">Revisión manual</b></div>
 
         <div class="legend">
           <span><i class="dot safe"></i> Zona visible</span>
@@ -340,8 +537,19 @@
           <span>seg.</span>
         </div>
 
+        <div class="quality-card">
+          <h3>Control de contenido y QR</h3>
+          <div class="metric"><span>QR externo</span><b id="externalQrMetric">—</b></div>
+          <div class="metric"><span>Motor QR</span><b id="qrEngineMetric">Pendiente</b></div>
+          <div class="qr-config">
+            <label for="qrAllowlistInput">Dominio permitido para QR Liverpool</label>
+            <input id="qrAllowlistInput" type="text" value="liverpool.com.mx" readonly />
+          </div>
+          <p>La detección automática de QR depende del navegador. Para religioso, sexual o político se recomienda revisión IA/OCR o validación manual; sin ese motor, la app no debe prometer detección total.</p>
+        </div>
+
         <p class="small-note">
-          La validación automática detecta riesgos visuales por contraste, contenido en zonas no visibles, bordes duros sobre cortes y falta aparente de fondo continuo. No reemplaza la revisión humana de marca/texto/producto, pero sí ayuda a encontrar los focos rojos antes de cargar en CRIUS.
+          La validación automática detecta riesgos visuales por contraste, contenido en zonas no visibles, bordes duros sobre cortes, falta aparente de fondo continuo y QR fuera de liverpool.com.mx. No reemplaza la revisión humana de marca/texto/producto, pero sí ayuda a encontrar los focos rojos antes de cargar en CRIUS.
         </p>
 
         <h2 style="font-size:15px;margin:18px 0 10px">Alertas detectadas</h2>
@@ -362,6 +570,8 @@
 (() => {
   const EXPECTED_W = 914;
   const EXPECTED_H = 908;
+  const MAX_DURATION_SECONDS = 10;
+  const DURATION_TOLERANCE_SECONDS = 0.05;
 
   const visibleBanners = [
     {name:'Banner 1', x:0, y:0, w:228, h:756},
@@ -395,15 +605,24 @@
   const statusText = document.getElementById('statusText');
   const resolutionMetric = document.getElementById('resolutionMetric');
   const durationMetric = document.getElementById('durationMetric');
+  const durationStatusMetric = document.getElementById('durationStatusMetric');
   const framesMetric = document.getElementById('framesMetric');
   const yellowMetric = document.getElementById('yellowMetric');
   const redMetric = document.getElementById('redMetric');
   const groupedMetric = document.getElementById('groupedMetric');
+  const qrMetric = document.getElementById('qrMetric');
+  const externalQrMetric = document.getElementById('externalQrMetric');
+  const qrEngineMetric = document.getElementById('qrEngineMetric');
+  const semanticMetric = document.getElementById('semanticMetric');
+  const qrAllowlistInput = document.getElementById('qrAllowlistInput');
 
   let objectUrl = null;
   let alerts = [];
   let overlayVisible = true;
   let currentFileName = '';
+  let qrFindings = [];
+  let qrDetector = null;
+  let qrDetectorChecked = false;
 
   function drawOverlay(){
     octx.clearRect(0,0,EXPECTED_W,EXPECTED_H);
@@ -484,6 +703,122 @@
     return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
   }
 
+  function fmtSeconds(s){
+    if(!isFinite(s)) return '—';
+    return `${s.toFixed(2)}s`;
+  }
+
+  function getDurationResult(){
+    const dur = Number(video.duration || 0);
+    if(!dur) return {level:'gray', label:'—', detail:'Sin duración detectada'};
+    if(dur > MAX_DURATION_SECONDS + DURATION_TOLERANCE_SECONDS){
+      return {
+        level:'red',
+        label:`Negado (${fmtSeconds(dur)})`,
+        detail:`El video dura ${fmtSeconds(dur)} y supera el máximo permitido de ${MAX_DURATION_SECONDS}s.`
+      };
+    }
+    if(dur < MAX_DURATION_SECONDS - DURATION_TOLERANCE_SECONDS){
+      return {
+        level:'yellow',
+        label:`Aprobable menor a 10s`,
+        detail:`El video dura ${fmtSeconds(dur)}. Puede aprobarse por estar por debajo de 10s.`
+      };
+    }
+    return {
+      level:'green',
+      label:'Correcta',
+      detail:`El video cumple la duración objetivo de ${MAX_DURATION_SECONDS}s.`
+    };
+  }
+
+  function setMetricStatus(el, result){
+    if(!el || !result) return;
+    el.className = `status-text-${result.level || 'gray'}`;
+    el.textContent = result.label || '—';
+  }
+
+  function getAllowedQrDomains(){
+    const raw = qrAllowlistInput ? qrAllowlistInput.value : 'liverpool.com.mx';
+    const domains = raw.split(',')
+      .map(v => v.trim().toLowerCase())
+      .filter(Boolean);
+    return domains.length ? domains : ['liverpool.com.mx'];
+  }
+
+  function isAllowedQrValue(value){
+    if(!value) return false;
+    let parsed;
+    try{ parsed = new URL(value); }
+    catch(e){ return true; }
+    const host = parsed.hostname.toLowerCase();
+    const allowed = getAllowedQrDomains();
+    return allowed.some(domain => host === domain || host.endsWith('.' + domain));
+  }
+
+  async function ensureQrDetector(){
+    if(qrDetectorChecked) return qrDetector;
+    qrDetectorChecked = true;
+    if(!('BarcodeDetector' in window)){
+      if(qrEngineMetric){
+        qrEngineMetric.textContent = 'No disponible';
+        qrEngineMetric.className = 'status-text-yellow';
+      }
+      return null;
+    }
+    try{
+      let supported = [];
+      if(BarcodeDetector.getSupportedFormats){
+        supported = await BarcodeDetector.getSupportedFormats();
+      }
+      if(supported.length && !supported.includes('qr_code')){
+        if(qrEngineMetric){
+          qrEngineMetric.textContent = 'Sin QR';
+          qrEngineMetric.className = 'status-text-yellow';
+        }
+        return null;
+      }
+      qrDetector = new BarcodeDetector({formats:['qr_code']});
+      if(qrEngineMetric){
+        qrEngineMetric.textContent = 'Activo';
+        qrEngineMetric.className = 'status-text-green';
+      }
+      return qrDetector;
+    }catch(e){
+      if(qrEngineMetric){
+        qrEngineMetric.textContent = 'No disponible';
+        qrEngineMetric.className = 'status-text-yellow';
+      }
+      qrDetector = null;
+      return null;
+    }
+  }
+
+  async function scanQrCurrentFrame(t){
+    const detector = await ensureQrDetector();
+    if(!detector) return [];
+    const findings = [];
+    try{
+      const codes = await detector.detect(analysisCanvas);
+      codes.forEach(code => {
+        const value = code.rawValue || '';
+        const external = /^https?:\/\//i.test(value) && !isAllowedQrValue(value);
+        const key = `${Math.round(t * 100) / 100}|${value}`;
+        if(!qrFindings.some(q => q.key === key)){
+          const item = {key, time:t, value, external};
+          qrFindings.push(item);
+          findings.push(item);
+        }
+      });
+    }catch(e){
+      if(qrEngineMetric){
+        qrEngineMetric.textContent = 'Error lectura';
+        qrEngineMetric.className = 'status-text-yellow';
+      }
+    }
+    return findings;
+  }
+
   function setStatus(level,title,text){
     statusLight.className = 'light ' + level;
     statusLight.textContent = level === 'green' ? 'OK' : level === 'yellow' ? '!' : level === 'red' ? 'X' : '—';
@@ -498,6 +833,7 @@
     video.removeAttribute('src');
     video.load();
     alerts = [];
+    qrFindings = [];
     seek.value = 0; seek.max = 0;
     timeLabel.textContent = '00:00 / 00:00';
     playBtn.disabled = true;
@@ -506,10 +842,18 @@
     captureBtn.disabled = true;
     resolutionMetric.textContent = '—';
     durationMetric.textContent = '—';
+    durationStatusMetric.textContent = '—';
+    durationStatusMetric.className = '';
     framesMetric.textContent = '—';
     yellowMetric.textContent = '—';
     redMetric.textContent = '—';
     groupedMetric.textContent = '—';
+    qrMetric.textContent = '—';
+    externalQrMetric.textContent = '—';
+    qrEngineMetric.textContent = 'Pendiente';
+    qrEngineMetric.className = '';
+    semanticMetric.textContent = 'Revisión manual';
+    semanticMetric.className = 'status-text-yellow';
     alertsBox.innerHTML = '';
     timeline.innerHTML = '';
     reportBox.style.display = 'none';
@@ -533,16 +877,22 @@
     const h = video.videoHeight;
     const dur = video.duration;
     resolutionMetric.textContent = `${w} × ${h} px`;
-    durationMetric.textContent = fmtTime(dur);
+    durationMetric.textContent = `${fmtTime(dur)} (${fmtSeconds(dur)})`;
+    const durationResult = getDurationResult();
+    setMetricStatus(durationStatusMetric, durationResult);
     seek.max = dur;
     playBtn.disabled = false;
     analyzeBtn.disabled = false;
     captureBtn.disabled = false;
 
-    if(w === EXPECTED_W && h === EXPECTED_H){
-      setStatus('yellow','Pendiente de análisis','La resolución es correcta. Ejecuta el análisis para validar riesgos visuales.');
-    } else {
+    if(dur > MAX_DURATION_SECONDS + DURATION_TOLERANCE_SECONDS){
+      setStatus('red','Negado por duración', durationResult.detail);
+    } else if(w !== EXPECTED_W || h !== EXPECTED_H){
       setStatus('red','Resolución incorrecta',`El video debe ser ${EXPECTED_W} × ${EXPECTED_H} px. La resolución actual es ${w} × ${h} px.`);
+    } else if(durationResult.level === 'yellow'){
+      setStatus('yellow','Pendiente de análisis',`${durationResult.detail} Ejecuta el análisis visual para validar cortes y zonas.`);
+    } else {
+      setStatus('yellow','Pendiente de análisis','La resolución y duración base son correctas. Ejecuta el análisis para validar riesgos visuales.');
     }
     drawOverlay();
     updateTime();
@@ -586,6 +936,7 @@
     analyzeBtn.disabled = true;
     analyzeBtn.textContent = 'Analizando...';
     alerts = [];
+    qrFindings = [];
     timeline.innerHTML = '';
     alertsBox.innerHTML = '';
 
@@ -598,6 +949,18 @@
     for(let i=0; i<times.length; i++){
       await waitForSeek(times[i]);
       const result = analyzeCurrentFrame(times[i]);
+      const qrAtFrame = await scanQrCurrentFrame(times[i]);
+      qrAtFrame.forEach(qr => {
+        const isUrl = /^https?:\/\//i.test(qr.value);
+        result.push({
+          time:times[i],
+          level:qr.external ? 'red' : 'yellow',
+          title:qr.external ? 'QR externo detectado' : 'QR detectado',
+          detail:qr.external
+            ? `Se detectó un QR con URL fuera del dominio permitido de Liverpool: ${qr.value}`
+            : `Se detectó un QR${isUrl ? ' permitido' : ''}: ${qr.value || 'sin valor legible'}`
+        });
+      });
       if(result.length) alerts.push(...result);
       addTimelineTick(times[i], result);
       framesMetric.textContent = `${i+1} / ${times.length}`;
@@ -888,21 +1251,26 @@
     const report = buildReport();
     reportBox.textContent = report;
     reportBox.style.display = 'block';
-    const blob = new Blob([report], {type:'text/plain;charset=utf-8'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `reporte_crius_${(currentFileName || 'video').replace(/\.[^/.]+$/, '')}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(()=>URL.revokeObjectURL(url), 1000);
+    openPdfReport();
   });
+
+  function getFinalResult(){
+    const yellow = alerts.filter(a=>a.level==='yellow').length;
+    const red = alerts.filter(a=>a.level==='red').length;
+    const wrongRes = video.videoWidth !== EXPECTED_W || video.videoHeight !== EXPECTED_H;
+    const durationResult = getDurationResult();
+    if(durationResult.level === 'red') return {level:'red', label:'ROJO — Negado por duración'};
+    if(wrongRes || red > 0) return {level:'red', label:'ROJO — Requiere ajuste'};
+    if(yellow > 0 || durationResult.level === 'yellow') return {level:'yellow', label:'AMARILLO — Aprobado con observaciones'};
+    return {level:'green', label:'VERDE — Aprobado visualmente'};
+  }
 
   function buildReport(){
     const yellow = alerts.filter(a=>a.level==='yellow').length;
     const red = alerts.filter(a=>a.level==='red').length;
-    const result = red > 0 || video.videoWidth !== EXPECTED_W || video.videoHeight !== EXPECTED_H ? 'ROJO — Requiere ajuste' : yellow > 0 ? 'AMARILLO — Aprobado con observaciones' : 'VERDE — Aprobado visualmente';
+    const result = getFinalResult().label;
+    const durationResult = getDurationResult();
+    const externalQrCount = qrFindings.filter(q => q.external).length;
     let txt = '';
     txt += 'REPORTE DE VALIDACIÓN CRIUS\n';
     txt += '================================\n\n';
@@ -910,9 +1278,12 @@
     txt += `Resultado: ${result}\n`;
     txt += `Resolución detectada: ${video.videoWidth} × ${video.videoHeight} px\n`;
     txt += `Resolución esperada: ${EXPECTED_W} × ${EXPECTED_H} px\n`;
-    txt += `Duración: ${fmtTime(video.duration)}\n`;
+    txt += `Duración: ${fmtTime(video.duration)} (${fmtSeconds(video.duration)})\n`;
+    txt += `Regla duración: ${durationResult.label}\n`;
     txt += `Alertas amarillas: ${yellow}\n`;
-    txt += `Alertas rojas: ${red}\n\n`;
+    txt += `Alertas rojas: ${red}\n`;
+    txt += `QR detectados: ${qrFindings.length}\n`;
+    txt += `QR externos: ${externalQrCount}\n\n`;
     txt += 'ZONAS VISIBLES CONFIGURADAS\n';
     visibleBanners.forEach(b => txt += `${b.name}: X ${b.x}-${b.x+b.w} / Y ${b.y}-${b.y+b.h}\n`);
     txt += 'Cortes verticales: 228 px / 457 px / 686 px\n\n';
@@ -927,9 +1298,179 @@
       });
     }
     txt += '\nNOTA\n';
-    txt += 'La validación automática detecta riesgos visuales, pero no garantiza la identificación exacta de texto, logos o productos. Validar manualmente cualquier elemento crítico de campaña.\n';
+    txt += 'La validación automática detecta riesgos visuales y QR cuando el navegador lo permite. Para Liverpool, el único dominio QR permitido es liverpool.com.mx. No garantiza identificación exacta de texto, logos, productos ni contenido religioso, sexual o político; validar manualmente cualquier elemento crítico de campaña.\n';
     txt += 'Cuando el fondo no cubre el canvas completo, no se garantiza la correcta visualización en todos los CRIUS por posibles diferencias de configuración o mapeo.\n';
     return txt;
+  }
+
+  function escapeHtml(value){
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  }
+
+  function captureReportFrame(){
+    if(!video.src) return '';
+    try{
+      const temp = document.createElement('canvas');
+      temp.width = EXPECTED_W;
+      temp.height = EXPECTED_H;
+      const ctx = temp.getContext('2d');
+      ctx.drawImage(video,0,0,EXPECTED_W,EXPECTED_H);
+      ctx.drawImage(overlay,0,0);
+      return temp.toDataURL('image/png');
+    }catch(e){
+      return '';
+    }
+  }
+
+  function reportRowsHtml(){
+    const groups = groupAlerts();
+    if(!groups.length){
+      return '<tr><td colspan="4" class="empty">Sin observaciones consolidadas.</td></tr>';
+    }
+    return groups.map(g => `
+      <tr>
+        <td><span class="badge ${g.level}">${g.level.toUpperCase()}</span></td>
+        <td>${escapeHtml(g.title)}</td>
+        <td>${escapeHtml(compressTimes(g.times))}</td>
+        <td>${escapeHtml(g.detail)}</td>
+      </tr>
+    `).join('');
+  }
+
+  function qrRowsHtml(){
+    if(!qrFindings.length){
+      return '<tr><td colspan="3" class="empty">No se detectaron QR en el muestreo.</td></tr>';
+    }
+    return qrFindings.map(q => `
+      <tr>
+        <td>${fmtTime(q.time)}</td>
+        <td><span class="badge ${q.external ? 'red' : 'yellow'}">${q.external ? 'EXTERNO' : 'DETECTADO'}</span></td>
+        <td>${escapeHtml(q.value || 'Sin valor legible')}</td>
+      </tr>
+    `).join('');
+  }
+
+  function openPdfReport(){
+    const result = getFinalResult();
+    const yellow = alerts.filter(a=>a.level==='yellow').length;
+    const red = alerts.filter(a=>a.level==='red').length;
+    const durationResult = getDurationResult();
+    const frame = captureReportFrame();
+    const logo = document.querySelector('.brand-logo')?.src || '';
+    const now = new Date().toLocaleString('es-MX');
+    const reportWindow = window.open('', '_blank');
+    if(!reportWindow){
+      alert('El navegador bloqueó la ventana del reporte. Permite pop-ups para generar el PDF.');
+      return;
+    }
+    reportWindow.document.write(`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Reporte CRIUS - ${escapeHtml(currentFileName || 'video')}</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#172033}
+  .page{width:210mm;min-height:297mm;margin:0 auto;background:white;padding:18mm;position:relative}
+  .top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;border-bottom:1px solid #d9e2f0;padding-bottom:18px}
+  .logo{max-width:170px;max-height:54px;object-fit:contain}
+  h1{margin:0;font-size:25px;color:#101828;letter-spacing:-.4px}
+  .meta{margin-top:6px;color:#667085;font-size:12px;line-height:1.45}
+  .result{margin:18px 0;padding:16px 18px;border-radius:16px;border:1px solid #d9e2f0;background:#f8fbff;display:flex;justify-content:space-between;align-items:center;gap:18px}
+  .result h2{margin:0;font-size:20px}
+  .dot{width:20px;height:20px;border-radius:50%;display:inline-block;margin-right:8px;vertical-align:-4px}
+  .dot.green{background:#17b857}.dot.yellow{background:#f4b63f}.dot.red{background:#ef4b4b}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+  .card{border:1px solid #d9e2f0;border-radius:14px;padding:12px;background:#fbfdff}
+  .card span{display:block;color:#667085;font-size:10px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px}
+  .card b{font-size:14px;color:#172033;word-break:break-word}
+  .section{margin-top:20px}
+  .section h3{margin:0 0 10px;font-size:15px;color:#172033}
+  .frame{width:100%;border:1px solid #d9e2f0;border-radius:16px;overflow:hidden;background:#0b0c18}
+  .frame img{display:block;width:100%;height:auto}
+  table{width:100%;border-collapse:collapse;font-size:11px}
+  th{background:#eef3fb;color:#344054;text-align:left;padding:9px;border:1px solid #d9e2f0}
+  td{padding:9px;border:1px solid #d9e2f0;vertical-align:top;color:#344054}
+  .badge{display:inline-block;border-radius:999px;padding:4px 7px;font-weight:800;font-size:9px;letter-spacing:.3px}
+  .badge.green{background:#dcfce7;color:#166534}
+  .badge.yellow{background:#fef3c7;color:#92400e}
+  .badge.red{background:#fee2e2;color:#991b1b}
+  .empty{color:#667085;text-align:center}
+  .note{margin-top:18px;padding:12px;border-radius:12px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:11px;line-height:1.45}
+  .footer{margin-top:20px;color:#98a2b3;font-size:10px;text-align:right}
+  @media print{body{background:white}.page{width:auto;min-height:auto;margin:0;padding:14mm;box-shadow:none}button{display:none}}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="top">
+      <div>
+        <h1>Reporte de Validación CRIUS</h1>
+        <div class="meta">
+          Archivo: <b>${escapeHtml(currentFileName || '—')}</b><br>
+          Generado: ${escapeHtml(now)}<br>
+          Canvas esperado: ${EXPECTED_W} × ${EXPECTED_H} px · Duración máxima: ${MAX_DURATION_SECONDS}s
+        </div>
+      </div>
+      ${logo ? `<img class="logo" src="${logo}" alt="in-Store Media">` : ''}
+    </div>
+
+    <div class="result">
+      <h2><span class="dot ${result.level}"></span>${escapeHtml(result.label)}</h2>
+      <div class="meta">${escapeHtml(statusText.textContent || '')}</div>
+    </div>
+
+    <div class="cards">
+      <div class="card"><span>Resolución detectada</span><b>${video.videoWidth} × ${video.videoHeight} px</b></div>
+      <div class="card"><span>Duración</span><b>${fmtSeconds(video.duration)}</b></div>
+      <div class="card"><span>Regla duración</span><b>${escapeHtml(durationResult.label)}</b></div>
+      <div class="card"><span>Frames revisados</span><b>${escapeHtml(framesMetric.textContent || '—')}</b></div>
+      <div class="card"><span>Alertas amarillas</span><b>${yellow}</b></div>
+      <div class="card"><span>Alertas rojas</span><b>${red}</b></div>
+      <div class="card"><span>QR detectados</span><b>${qrFindings.length}</b></div>
+      <div class="card"><span>Contenido sensible</span><b>Revisión manual / IA</b></div>
+    </div>
+
+    ${frame ? `<div class="section"><h3>Frame de referencia con overlay</h3><div class="frame"><img src="${frame}" alt="Frame CRIUS"></div></div>` : ''}
+
+    <div class="section">
+      <h3>Observaciones consolidadas</h3>
+      <table>
+        <thead><tr><th>Nivel</th><th>Alerta</th><th>Segundos</th><th>Detalle</th></tr></thead>
+        <tbody>${reportRowsHtml()}</tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h3>QR detectados</h3>
+      <table>
+        <thead><tr><th>Segundo</th><th>Estado</th><th>Valor</th></tr></thead>
+        <tbody>${qrRowsHtml()}</tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h3>Zonas visibles configuradas</h3>
+      <table>
+        <thead><tr><th>Banner</th><th>X</th><th>Y</th><th>Medida</th></tr></thead>
+        <tbody>
+          ${visibleBanners.map(b => `<tr><td>${b.name}</td><td>${b.x}-${b.x+b.w}</td><td>${b.y}-${b.y+b.h}</td><td>${b.w} × ${b.h}</td></tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      La validación automática no sustituye revisión humana de arte, marca, texto legal, producto ni contenido sensible. La detección de QR depende del navegador. Para detección confiable de contenido religioso, sexual o político se requiere motor IA/OCR o revisión manual documentada.
+    </div>
+
+    <div class="footer">CRIUS Validator · in-Store Media</div>
+  </div>
+  <script>
+    window.addEventListener('load', () => setTimeout(() => window.print(), 450));
+  <\/script>
+</body>
+</html>`);
+    reportWindow.document.close();
   }
 
   captureBtn.addEventListener('click', () => {
